@@ -13,3 +13,12 @@ def obtener_pais_max_poblacion(lista_paises):
         if pais["poblacion"] > pais_max["poblacion"]:
             pais_max = pais
     return pais_max
+
+def obtener_pais_min_poblacion(lista_paises):
+    # Lógica idéntica al máximo, pero invertimos la condición de comparación (<).
+    if not lista_paises: return None
+    pais_min = lista_paises[0]
+    for pais in lista_paises:
+        if pais["poblacion"] < pais_min["poblacion"]:
+            pais_min = pais
+    return pais_min
