@@ -15,7 +15,7 @@ def obtener_pais_max_poblacion(lista_paises):
     return pais_max
 
 def obtener_pais_min_poblacion(lista_paises):
-    # Lógica idéntica al máximo, pero invertimos la condición de comparación (<).
+    # Lógica idéntica al máximo, pero invertimos la condición de comparación
     if not lista_paises: return None
     pais_min = lista_paises[0]
     for pais in lista_paises:
@@ -27,11 +27,9 @@ def calcular_promedio_poblacion(lista_paises):
     # Validación: Evitamos la división por cero si la lista está vacía.
     if not lista_paises: return 0
     
-    # Acumulación: Usamos una 'comprensión de generador' para sumar las poblaciones
-    # de todos los países. Es más eficiente y legible que un bucle tradicional.
     total = sum(p["poblacion"] for p in lista_paises)
     
-    # Cálculo: Dividimos la suma total por la cantidad de elementos (len).
+    # Cálculo: Dividimos la suma total por la cantidad de elementos
     return total / len(lista_paises)
 
 def calcular_promedio_superficie(lista_paises):
@@ -51,7 +49,7 @@ def contar_paises_por_continente(lista_paises):
         # Si el continente YA existe en nuestro diccionario, sumamos 1 al contador actual.
         if cont in conteo:
             conteo[cont] += 1
-        # Si NO existe, creamos la clave y le asignamos 1 (es la primera vez que lo vemos).
+        # Si NO existe, creamos la clave y le asignamos 1 
         else:
             conteo[cont] = 1
             
