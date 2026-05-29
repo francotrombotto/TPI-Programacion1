@@ -33,3 +33,9 @@ def calcular_promedio_poblacion(lista_paises):
     
     # Cálculo: Dividimos la suma total por la cantidad de elementos (len).
     return total / len(lista_paises)
+
+def calcular_promedio_superficie(lista_paises):
+    # Misma lógica que el promedio de población, aplicada a la superficie.
+    if not lista_paises: return 0
+    total = sum(p["superficie"] for p in lista_paises)
+    return total / len(lista_paises)
