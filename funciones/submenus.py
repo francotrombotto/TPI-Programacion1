@@ -60,7 +60,26 @@ def submenu_filtros(lista_paises):
                 else:
                     print("\nError: Los rangos deben ser números enteros válidos.")
             elif opcion == 3:
-                print("\n-> Módulo en construcción: Filtrar por superficie")
+                # 1. Pedimos los rangos y validamos
+                min_str = input("\nIngrese la superficie mínima (km2): ").strip()
+                max_str = input("Ingrese la superficie máxima (km2): ").strip()
+                
+                if min_str.isdigit() and max_str.isdigit():
+                    minimo = int(min_str)
+                    maximo = int(max_str)
+                    
+                    # 2. Llamamos a tu función
+                    resultados = filtrar_por_superficie(lista_paises, minimo, maximo)
+                    
+                    # 3. Mostramos los resultados
+                    if len(resultados) > 0:
+                        print(f"\nPaíses con superficie entre {minimo} y {maximo} km2:")
+                        for p in resultados:
+                            print(f"- {p['nombre']} | Superficie: {p['superficie']} km2")
+                    else:
+                        print("\nNo se encontraron países en ese rango de superficie.")
+                else:
+                    print("\nError: Los rangos deben ser números enteros válidos.")
             elif opcion == 0:
                 print("\nVolviendo al menú principal...")
                 break # Ahora Python sí sabe que este break debe romper el while de arriba
