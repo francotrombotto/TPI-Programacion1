@@ -39,7 +39,26 @@ def submenu_filtros(lista_paises):
                 else:
                     print(f"\nNo se encontraron países para el continente '{continente_input}'.")
             elif opcion == 2:
-                print("\n-> Módulo en construcción: Filtrar por población")
+                # 1. Pedimos los rangos y validamos que sean números
+                min_str = input("\nIngrese la población mínima: ").strip()
+                max_str = input("Ingrese la población máxima: ").strip()
+                
+                if min_str.isdigit() and max_str.isdigit():
+                    minimo = int(min_str)
+                    maximo = int(max_str)
+                    
+                    # 2. Llamamos a tu función
+                    resultados = filtrar_por_poblacion(lista_paises, minimo, maximo)
+                    
+                    # 3. Mostramos los resultados
+                    if len(resultados) > 0:
+                        print(f"\nPaíses con población entre {minimo} y {maximo}:")
+                        for p in resultados:
+                            print(f"- {p['nombre']} | Población: {p['poblacion']}")
+                    else:
+                        print("\nNo se encontraron países en ese rango de población.")
+                else:
+                    print("\nError: Los rangos deben ser números enteros válidos.")
             elif opcion == 3:
                 print("\n-> Módulo en construcción: Filtrar por superficie")
             elif opcion == 0:
