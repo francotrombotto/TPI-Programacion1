@@ -39,3 +39,20 @@ def calcular_promedio_superficie(lista_paises):
     if not lista_paises: return 0
     total = sum(p["superficie"] for p in lista_paises)
     return total / len(lista_paises)
+
+def contar_paises_por_continente(lista_paises):
+    # Inicialización: Creamos un diccionario vacío para guardar los conteos.
+    # La lógica es usar el nombre del continente como CLAVE y la cantidad como VALOR.
+    conteo = {}
+    
+    for pais in lista_paises:
+        cont = pais["continente"]
+        # Lógica de conteo: 
+        # Si el continente YA existe en nuestro diccionario, sumamos 1 al contador actual.
+        if cont in conteo:
+            conteo[cont] += 1
+        # Si NO existe, creamos la clave y le asignamos 1 (es la primera vez que lo vemos).
+        else:
+            conteo[cont] = 1
+            
+    return conteo

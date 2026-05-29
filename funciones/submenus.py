@@ -1,5 +1,5 @@
 from funciones.filtros import (filtrar_por_continente, filtrar_por_poblacion, filtrar_por_superficie)
-from funciones.estadisticas import (obtener_pais_max_poblacion,obtener_pais_min_poblacion,calcular_promedio_poblacion,calcular_promedio_superficie)
+from funciones.estadisticas import (obtener_pais_max_poblacion,obtener_pais_min_poblacion,calcular_promedio_poblacion,calcular_promedio_superficie,contar_paises_por_continente)
 
 def mostrar_menu():
     print("\n===== MENU PRINCIPAL =====")
@@ -144,7 +144,10 @@ def submenu_estadisticas(lista_paises):
                 prom = calcular_promedio_superficie(lista_paises)
                 print(f"\nEl promedio de superficie es: {prom:.2f} km2")
             elif opcion == 5:
-                print("\n-> Módulo en construcción: Cantidad de países por continente")
+                conteo = contar_paises_por_continente(lista_paises)
+                print("\nCantidad de países por continente:")
+                for cont, cant in conteo.items():
+                    print(f"- {cont}: {cant}")
             elif opcion == 0:
                 print("\nVolviendo al menú principal...")
                 break # Rompe el bucle y regresa al menú principal
