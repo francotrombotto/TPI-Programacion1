@@ -1,4 +1,5 @@
 from funciones.filtros import filtrar_por_continente, filtrar_por_poblacion, filtrar_por_superficie
+from funciones.estadisticas import obtener_pais_max_poblacion
 
 def mostrar_menu():
     print("\n===== MENU PRINCIPAL =====")
@@ -28,7 +29,7 @@ def submenu_filtros(lista_paises):
                 # 1. Pedimos el dato
                 continente_input = input("\nIngrese el nombre del continente: ").strip()
                 
-                # 2. Llamamos a tu función
+                # 2. Llamamos a la función
                 resultados = filtrar_por_continente(lista_paises, continente_input)
                 
                 # 3. Mostramos los resultados
@@ -47,7 +48,7 @@ def submenu_filtros(lista_paises):
                     minimo = int(min_str)
                     maximo = int(max_str)
                     
-                    # 2. Llamamos a tu función
+                    # 2. Llamamos a la función
                     resultados = filtrar_por_poblacion(lista_paises, minimo, maximo)
                     
                     # 3. Mostramos los resultados
@@ -68,7 +69,7 @@ def submenu_filtros(lista_paises):
                     minimo = int(min_str)
                     maximo = int(max_str)
                     
-                    # 2. Llamamos a tu función
+                    # 2. Llamamos a la función
                     resultados = filtrar_por_superficie(lista_paises, minimo, maximo)
                     
                     # 3. Mostramos los resultados
@@ -131,7 +132,8 @@ def submenu_estadisticas(lista_paises):
             opcion = int(opcion_str)
             
             if opcion == 1:
-                print("\n-> Módulo en construcción: País con mayor población")
+                pais = obtener_pais_max_poblacion(lista_paises)
+                print(f"\nEl país con mayor población es: {pais['nombre']} ({pais['poblacion']})")
             elif opcion == 2:
                 print("\n-> Módulo en construcción: País con menor población")
             elif opcion == 3:

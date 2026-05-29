@@ -1,0 +1,15 @@
+def obtener_pais_max_poblacion(lista_paises):
+    # Validación: Si la lista está vacía, no se puede buscar. Retornamos None para evitar errores.
+    if not lista_paises: return None
+    
+    # Inicialización: Suponemos que el primer país es el que tiene más población.
+    # Usamos esta variable como punto de referencia para comparar con el resto.
+    pais_max = lista_paises[0]
+    
+    # Recorrido: Iteramos por cada país de la lista.
+    for pais in lista_paises:
+        # Comparación: Si el país actual supera en población al que teníamos guardado,
+        # actualizamos nuestra referencia (pais_max) con el nuevo país.
+        if pais["poblacion"] > pais_max["poblacion"]:
+            pais_max = pais
+    return pais_max
