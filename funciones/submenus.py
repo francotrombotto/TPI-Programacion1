@@ -1,5 +1,5 @@
 from funciones.filtros import (filtrar_por_continente, filtrar_por_poblacion, filtrar_por_superficie)
-from funciones.estadisticas import (obtener_pais_max_poblacion,obtener_pais_min_poblacion)
+from funciones.estadisticas import (obtener_pais_max_poblacion,obtener_pais_min_poblacion,calcular_promedio_poblacion)
 
 def mostrar_menu():
     print("\n===== MENU PRINCIPAL =====")
@@ -138,7 +138,8 @@ def submenu_estadisticas(lista_paises):
                 pais = obtener_pais_min_poblacion(lista_paises)
                 print(f"\nEl país con menor población es: {pais['nombre']} ({pais['poblacion']})")
             elif opcion == 3:
-                print("\n-> Módulo en construcción: Promedio de población")
+                prom = calcular_promedio_poblacion(lista_paises)
+                print(f"\nEl promedio de población es: {prom:.2f}")
             elif opcion == 4:
                 print("\n-> Módulo en construcción: Promedio de superficie")
             elif opcion == 5:

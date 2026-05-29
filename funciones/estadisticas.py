@@ -22,3 +22,14 @@ def obtener_pais_min_poblacion(lista_paises):
         if pais["poblacion"] < pais_min["poblacion"]:
             pais_min = pais
     return pais_min
+
+def calcular_promedio_poblacion(lista_paises):
+    # Validación: Evitamos la división por cero si la lista está vacía.
+    if not lista_paises: return 0
+    
+    # Acumulación: Usamos una 'comprensión de generador' para sumar las poblaciones
+    # de todos los países. Es más eficiente y legible que un bucle tradicional.
+    total = sum(p["poblacion"] for p in lista_paises)
+    
+    # Cálculo: Dividimos la suma total por la cantidad de elementos (len).
+    return total / len(lista_paises)
