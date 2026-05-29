@@ -1,3 +1,5 @@
+from funciones.filtros import filtrar_por_continente, filtrar_por_poblacion, filtrar_por_superficie
+
 def mostrar_menu():
     print("\n===== MENU PRINCIPAL =====")
     print("1 - Mostrar países")
@@ -17,14 +19,25 @@ def submenu_filtros(lista_paises):
         print("3 - Por rango de superficie")
         print("0 - Volver")
 
-        # Todo este bloque de abajo DEBE tener sangría para pertenecer al while True
         opcion_str = input("\nIngrese una opción del submenú: ").strip()
         
         if opcion_str.isdigit():
             opcion = int(opcion_str)
             
             if opcion == 1:
-                print("\n-> Módulo en construcción: Filtrar por continente")
+                # 1. Pedimos el dato
+                continente_input = input("\nIngrese el nombre del continente: ").strip()
+                
+                # 2. Llamamos a tu función
+                resultados = filtrar_por_continente(lista_paises, continente_input)
+                
+                # 3. Mostramos los resultados
+                if len(resultados) > 0:
+                    print(f"\nSe encontraron {len(resultados)} países en {continente_input.capitalize()}:")
+                    for p in resultados:
+                        print(f"- {p['nombre']} | Población: {p['poblacion']} | Superficie: {p['superficie']} km2")
+                else:
+                    print(f"\nNo se encontraron países para el continente '{continente_input}'.")
             elif opcion == 2:
                 print("\n-> Módulo en construcción: Filtrar por población")
             elif opcion == 3:
