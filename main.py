@@ -1,4 +1,5 @@
 from funciones.archivos import cargar_paises
+from funciones.filtros import filtrar_por_continente
 
 # cargamos los datos del csv al iniciar el programa
 paises = cargar_paises("datos/paises.csv")
@@ -37,8 +38,12 @@ while True:
 
     elif opcion == "3":
 
-        print("\nAcá después vamos a buscar países")
+        continente = input("Ingresá continente: ")
 
+        resultado = filtrar_por_continente(paises, continente)
+
+        print(resultado)
+        
     elif opcion == "0":
 
         print("\nCerrando programa...")
@@ -47,3 +52,4 @@ while True:
     else:
 
         print("\nOpción inválida")
+
