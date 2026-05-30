@@ -1,5 +1,6 @@
 from funciones.filtros import (filtrar_por_continente, filtrar_por_poblacion, filtrar_por_superficie)
 from funciones.estadisticas import (obtener_pais_max_poblacion,obtener_pais_min_poblacion,calcular_promedio_poblacion,calcular_promedio_superficie,contar_paises_por_continente)
+from funciones.ordenamiento import (ordenar_por_nombre)
 
 def mostrar_menu():
     print("\n===== MENU PRINCIPAL =====")
@@ -95,26 +96,38 @@ def submenu_ordenamientos(lista_paises):
         print("1 - Ordenar por nombre")
         print("2 - Ordenar por población")
         print("3 - Ordenar por superficie")
-        print("0 - Volver al Menú Principal")
+        print("0 - Volver")
         
-        opcion_str = input("\nIngrese una opción del submenú: ").strip()
+        opcion_str = input("\nIngrese una opción: ").strip()
         
         if opcion_str.isdigit():
             opcion = int(opcion_str)
             
-            if opcion == 1:
-                print("\n-> Módulo en construcción: Ordenar por nombre")
-            elif opcion == 2:
-                print("\n-> Módulo en construcción: Ordenar por población")
-            elif opcion == 3:
-                print("\n-> Módulo en construcción: Ordenar por superficie")
+            if opcion in [1, 2, 3]:
+                # Preguntamos el sentido del orden
+                sentido = input("¿Orden ascendente? (s/n): ").lower()
+                es_ascendente = (sentido == 's')
+                
+                # Ejecutamos la función según corresponda
+                if opcion == 1:
+                    ordenar_por_nombre(lista_paises, es_ascendente)
+                elif opcion == 2:
+                    print("\n-> Módulo en construcción")
+                elif opcion == 3:
+                    print("\n-> Módulo en construcción")
+                
+                # Mostramos cómo quedó la lista ordenada
+                print("\nLista ordenada:")
+                for p in lista_paises:
+                    print(f"- {p['nombre']} | Pob: {p['poblacion']} | Sup: {p['superficie']} km2")
+                    
             elif opcion == 0:
-                print("\nVolviendo al menú principal...")
-                break # Rompe el bucle y regresa al menú principal
+                break
             else:
-                print("\nError: Por favor, ingrese un número del 0 al 3.")
+                print("\nError: Ingrese una opción válida.")
         else:
-            print("\nError: Entrada inválida. Ingrese solo números enteros.")
+            print("\nError: Ingrese solo números.")
+
 
 def submenu_estadisticas(lista_paises):
     while True:
