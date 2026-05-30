@@ -1,6 +1,6 @@
 from funciones.filtros import (filtrar_por_continente, filtrar_por_poblacion, filtrar_por_superficie)
 from funciones.estadisticas import (obtener_pais_max_poblacion,obtener_pais_min_poblacion,calcular_promedio_poblacion,calcular_promedio_superficie,contar_paises_por_continente)
-from funciones.ordenamiento import (ordenar_por_nombre,ordenar_por_poblacion)
+from funciones.ordenamiento import (ordenar_por_nombre,ordenar_por_poblacion,ordenar_por_superficie)
 
 def mostrar_menu():
     print("\n===== MENU PRINCIPAL =====")
@@ -27,13 +27,13 @@ def submenu_filtros(lista_paises):
             opcion = int(opcion_str)
             
             if opcion == 1:
-                # 1. Pedimos el dato
+                # Pedimos el dato
                 continente_input = input("\nIngrese el nombre del continente: ").strip()
                 
-                # 2. Llamamos a la función
+                #Llamamos a la función
                 resultados = filtrar_por_continente(lista_paises, continente_input)
                 
-                # 3. Mostramos los resultados
+                #Mostramos los resultados
                 if len(resultados) > 0:
                     print(f"\nSe encontraron {len(resultados)} países en {continente_input.capitalize()}:")
                     for p in resultados:
@@ -41,7 +41,7 @@ def submenu_filtros(lista_paises):
                 else:
                     print(f"\nNo se encontraron países para el continente '{continente_input}'.")
             elif opcion == 2:
-                # 1. Pedimos los rangos y validamos que sean números
+                # Pedimos los rangos y validamos que sean números
                 min_str = input("\nIngrese la población mínima: ").strip()
                 max_str = input("Ingrese la población máxima: ").strip()
                 
@@ -49,10 +49,10 @@ def submenu_filtros(lista_paises):
                     minimo = int(min_str)
                     maximo = int(max_str)
                     
-                    # 2. Llamamos a la función
+                    # Llamamos a la función
                     resultados = filtrar_por_poblacion(lista_paises, minimo, maximo)
                     
-                    # 3. Mostramos los resultados
+                    # Mostramos los resultados
                     if len(resultados) > 0:
                         print(f"\nPaíses con población entre {minimo} y {maximo}:")
                         for p in resultados:
@@ -62,7 +62,7 @@ def submenu_filtros(lista_paises):
                 else:
                     print("\nError: Los rangos deben ser números enteros válidos.")
             elif opcion == 3:
-                # 1. Pedimos los rangos y validamos
+                #Pedimos los rangos y validamos
                 min_str = input("\nIngrese la superficie mínima (km2): ").strip()
                 max_str = input("Ingrese la superficie máxima (km2): ").strip()
                 
@@ -70,10 +70,10 @@ def submenu_filtros(lista_paises):
                     minimo = int(min_str)
                     maximo = int(max_str)
                     
-                    # 2. Llamamos a la función
+                    #Llamamos a la función
                     resultados = filtrar_por_superficie(lista_paises, minimo, maximo)
                     
-                    # 3. Mostramos los resultados
+                    #Mostramos los resultados
                     if len(resultados) > 0:
                         print(f"\nPaíses con superficie entre {minimo} y {maximo} km2:")
                         for p in resultados:
@@ -84,7 +84,7 @@ def submenu_filtros(lista_paises):
                     print("\nError: Los rangos deben ser números enteros válidos.")
             elif opcion == 0:
                 print("\nVolviendo al menú principal...")
-                break # Ahora Python sí sabe que este break debe romper el while de arriba
+                break 
             else:
                 print("\nError: Por favor, ingrese un número del 0 al 3.")
         else:
@@ -108,15 +108,15 @@ def submenu_ordenamientos(lista_paises):
                 sentido = input("¿Orden ascendente? (s/n): ").lower()
                 es_ascendente = (sentido == 's')
                 
-                # Ejecutamos la función según corresponda
+                # Ejecutamos la función
                 if opcion == 1:
                     ordenar_por_nombre(lista_paises, es_ascendente)
                 elif opcion == 2:
                     ordenar_por_poblacion(lista_paises, es_ascendente)
                 elif opcion == 3:
-                    print("\n-> Módulo en construcción")
+                    ordenar_por_superficie(lista_paises, es_ascendente)
                 
-                # Mostramos cómo quedó la lista ordenada
+                # Mostramos la lista ordenada
                 print("\nLista ordenada:")
                 for p in lista_paises:
                     print(f"- {p['nombre']} | Pob: {p['poblacion']} | Sup: {p['superficie']} km2")

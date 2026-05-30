@@ -1,14 +1,14 @@
 def obtener_pais_max_poblacion(lista_paises):
-    # Validación: Si la lista está vacía, no se puede buscar. Retornamos None para evitar errores.
+    # Validación: Si la lista está vacía, no se puede buscar.
     if not lista_paises: return None
     
-    # Inicialización: Suponemos que el primer país es el que tiene más población.
+    # Suponemos que el primer país es el que tiene más población.
     # Usamos esta variable como punto de referencia para comparar con el resto.
     pais_max = lista_paises[0]
     
-    # Recorrido: Iteramos por cada país de la lista.
+    #Iteramos por cada país de la lista.
     for pais in lista_paises:
-        # Comparación: Si el país actual supera en población al que teníamos guardado,
+        # Si el país actual supera en población al que teníamos guardado,
         # actualizamos nuestra referencia (pais_max) con el nuevo país.
         if pais["poblacion"] > pais_max["poblacion"]:
             pais_max = pais
@@ -24,12 +24,12 @@ def obtener_pais_min_poblacion(lista_paises):
     return pais_min
 
 def calcular_promedio_poblacion(lista_paises):
-    # Validación: Evitamos la división por cero si la lista está vacía.
+
     if not lista_paises: return 0
     
     total = sum(p["poblacion"] for p in lista_paises)
     
-    # Cálculo: Dividimos la suma total por la cantidad de elementos
+    # Dividimos la suma total por la cantidad de elementos
     return total / len(lista_paises)
 
 def calcular_promedio_superficie(lista_paises):
@@ -39,13 +39,12 @@ def calcular_promedio_superficie(lista_paises):
     return total / len(lista_paises)
 
 def contar_paises_por_continente(lista_paises):
-    # Inicialización: Creamos un diccionario vacío para guardar los conteos.
-    # La lógica es usar el nombre del continente como CLAVE y la cantidad como VALOR.
+    # Creamos un diccionario vacío para guardar los conteos.
+    #nombre del continente como CLAVE y la cantidad como VALOR.
     conteo = {}
     
     for pais in lista_paises:
         cont = pais["continente"]
-        # Lógica de conteo: 
         # Si el continente YA existe en nuestro diccionario, sumamos 1 al contador actual.
         if cont in conteo:
             conteo[cont] += 1
