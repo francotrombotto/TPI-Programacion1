@@ -1,6 +1,6 @@
 from funciones.filtros import (filtrar_por_continente, filtrar_por_poblacion, filtrar_por_superficie)
 from funciones.estadisticas import (obtener_pais_max_poblacion,obtener_pais_min_poblacion,calcular_promedio_poblacion,calcular_promedio_superficie,contar_paises_por_continente)
-from funciones.ordenamiento import (ordenar_por_nombre)
+from funciones.ordenamiento import (ordenar_por_nombre,ordenar_por_poblacion)
 
 def mostrar_menu():
     print("\n===== MENU PRINCIPAL =====")
@@ -112,7 +112,7 @@ def submenu_ordenamientos(lista_paises):
                 if opcion == 1:
                     ordenar_por_nombre(lista_paises, es_ascendente)
                 elif opcion == 2:
-                    print("\n-> Módulo en construcción")
+                    ordenar_por_poblacion(lista_paises, es_ascendente)
                 elif opcion == 3:
                     print("\n-> Módulo en construcción")
                 
