@@ -26,8 +26,6 @@ def cargar_paises(ruta):
         print("Error: el archivo csv tiene datos inválidos")
     return paises
 
-import csv
-
 # guarda la lista actual de países en el csv
 def guardar_paises(ruta, lista_paises):
 
