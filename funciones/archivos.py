@@ -22,5 +22,23 @@ def cargar_paises(ruta):
 
     except FileNotFoundError:
         print("Error: archivo no encontrado")
-
+    except ValueError:
+        print("Error: el archivo csv tiene datos inválidos")
     return paises
+
+# guarda la lista actual de países en el csv
+def guardar_paises(ruta, lista_paises):
+
+    with open(ruta, mode="w", newline="", encoding="utf-8") as archivo:
+
+        campos = ["nombre", "poblacion", "superficie", "continente"]
+
+        escritor = csv.DictWriter(
+            archivo,
+            fieldnames=campos
+        )
+
+        escritor.writeheader()
+
+        for pais in lista_paises:
+            escritor.writerow(pais)

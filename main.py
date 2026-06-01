@@ -1,5 +1,6 @@
 
-from funciones.archivos import cargar_paises
+from funciones.archivos import (cargar_paises,guardar_paises)
+from funciones.paises import (mostrar_paises,agregar_pais,buscar_pais,actualizar_pais)
 
 from funciones.submenus import (
     mostrar_menu, 
@@ -16,17 +17,21 @@ while True:
     opcion = input("\nElegí una opción: ").strip()
 
     if opcion == "1":
-        print("\n-> Módulo en construcción: Mostrar países")
+        mostrar_paises(paises)
     elif opcion == "2":
-        print("\n-> Módulo en construcción: Agregar país")
+        agregar_pais(paises)
+        guardar_paises("datos/paises.csv",paises)
     elif opcion == "3":
-        print("\n-> Módulo en construcción: Actualizar país")
+        buscar_pais(paises)
     elif opcion == "4":
         submenu_filtros(paises)  
     elif opcion == "5":
         submenu_ordenamientos(paises)  
     elif opcion == "6":
-        submenu_estadisticas(paises)  
+        submenu_estadisticas(paises) 
+    elif opcion == "7":
+        actualizar_pais(paises)
+        guardar_paises("datos/paises.csv",paises) 
     elif opcion == "0":
         print("\nCerrando programa...")
         break

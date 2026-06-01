@@ -10,6 +10,7 @@ def mostrar_menu():
     print("4 - Filtros")
     print("5 - Ordenamientos")
     print("6 - Estadísticas")
+    print("7 - Actualizar país")
     print("0 - Salir")
 
 
