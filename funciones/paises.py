@@ -21,6 +21,15 @@ def agregar_pais(lista_paises):
 
     nombre = input("Ingrese el nombre del país: ").strip()
 
+    #valida duplicados
+    for pais in lista_paises:
+
+        if pais["nombre"].lower() == nombre.lower():
+
+            print("\nEse país ya existe")
+
+            return
+
     # evita que el nombre quede vacío
     if nombre == "":
         print("\nEl nombre no puede estar vacío")
