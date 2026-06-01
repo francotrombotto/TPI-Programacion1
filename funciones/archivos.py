@@ -22,7 +22,8 @@ def cargar_paises(ruta):
 
     except FileNotFoundError:
         print("Error: archivo no encontrado")
-
+    except ValueError:
+        print("Error: el archivo csv tiene datos inválidos")
     return paises
 
 import csv

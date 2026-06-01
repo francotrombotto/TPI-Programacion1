@@ -106,6 +106,19 @@ def actualizar_pais(lista_paises):
 
     nombre = input("Ingrese el país a modificar: ").lower()
 
+    #No permite ingresar números negativos
+    if nueva_poblacion <= 0:
+
+        print("\nLa población debe ser mayor a cero")
+
+        return
+
+    if nueva_superficie <= 0:
+
+        print("\nLa superficie debe ser mayor a cero")
+
+        return
+
     for pais in lista_paises:
 
         if pais["nombre"].lower() == nombre:
