@@ -66,7 +66,14 @@ def agregar_pais(lista_paises):
 # busca países por nombre
 def buscar_pais(lista_paises):
 
-    texto = input("Ingrese el nombre a buscar: ").lower()
+    texto = input("Ingrese el nombre a buscar: ").strip().lower()
+    
+    #Valida que no se pueda hacer una búsqueda vacía
+    if texto == "":
+
+        print("\nDebe ingresar un nombre")
+
+        return
 
     encontrados = []
 
