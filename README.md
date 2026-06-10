@@ -154,7 +154,7 @@ Durante el desarrollo del proyecto se aplicaron los siguientes conceptos vistos 
 
 Repositorio GitHub:
 
-[Agregar aquí el enlace del repositorio]
+https://github.com/francotrombotto/TPI-Programacion1
 
 ---
 
@@ -162,7 +162,7 @@ Repositorio GitHub:
 
 Video del funcionamiento del sistema:
 
-[Agregar aquí el enlace al video]
+https://youtu.be/gvRFR_gCbm8
 
 ---
 
